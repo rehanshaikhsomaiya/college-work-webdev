@@ -1,0 +1,45 @@
+nav {
+    background-color: #0b4f71;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    margin: 3px;
+}
+
+nav a:hover {
+    color: yellow;
+    text-decoration: underline;
+}
+
+
+figure {
+    display: inline-block;
+    margin: 15px;
+    padding: 10px;
+    border: 2px solid #0b4f71;
+    background-color: white;
+}
+
+figure img {
+    width: 300px;
+    height: 200px;
+    border: 2px solid #777777;
+    transition: transform 0.3s;
+}
+
+figure img:hover {
+    transform: scale(1.08);
+}
+
+figcaption {
+    text-align: center;
+    color: #0b4f71;
+    font-weight: bold;
+    padding: 8px;
+}

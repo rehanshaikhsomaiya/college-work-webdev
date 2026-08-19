@@ -1,0 +1,39 @@
+header {
+    background-color: #b9e3f5;
+    border: 2px solid #0b4f71;
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+}
+
+
+aside {
+    float: left;
+    width: 22%;
+    margin: 15px;
+    padding: 20px;
+    background-color: white;
+    border: 2px solid #0b4f71;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px #aaaaaa;
+}
+
+
+article {
+    margin-left: 27%;
+    width: 65%;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #777777;
+    box-shadow: 2px 2px 8px #cccccc;
+}
+
+
+section {
+    overflow: auto;
+}
+
+
+footer {
+    clear: both;
+}

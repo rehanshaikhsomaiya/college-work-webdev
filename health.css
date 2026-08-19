@@ -1,0 +1,79 @@
+aside {
+    background-color: white;
+    border: 2px solid #0b4f71;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px;
+    box-shadow: 3px 3px 10px #aaaaaa;
+}
+
+aside li {
+    padding: 8px;
+    margin: 5px;
+}
+
+aside li:hover {
+    background-color: #d2edf7;
+}
+
+
+.card {
+    display: inline-block;
+    width: 250px;
+    margin: 15px;
+    padding: 20px;
+    border: 2px solid #0b4f71;
+    background-color: white;
+    text-align: center;
+    box-shadow: 3px 3px 10px #aaaaaa;
+}
+
+
+figure {
+    display: inline-block;
+    margin: 15px;
+    padding: 10px;
+    border: 2px solid #0b4f71;
+    background-color: white;
+}
+
+figure img {
+    width: 300px;
+    height: 200px;
+    border: 2px solid #777777;
+    transition: transform 0.3s;
+}
+
+figure img:hover {
+    transform: scale(1.08);
+}
+
+figcaption {
+    text-align: center;
+    padding: 8px;
+    font-weight: bold;
+}
+
+
+.offer {
+    background-color: #fff3cd;
+    color: #8a4b00;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+    border: 2px solid #d39e00;
+    box-shadow: 0 0 12px #d39e00;
+    text-shadow: 1px 1px 2px #aaaaaa;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px #d39e00;
+    }
+    to {
+        box-shadow: 0 0 20px #d39e00;
+    }
+}

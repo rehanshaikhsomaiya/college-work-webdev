@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eef7fb;
+    color: #222222;
+    margin: 0;
+}
+
+h1, h2, h3 {
+    color: #0b4f71;
+}
+
+footer {
+    background-color: #0b4f71;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+a {
+    color: #0b4f71;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
