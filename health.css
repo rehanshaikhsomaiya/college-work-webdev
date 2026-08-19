@@ -1,5 +1,5 @@
 aside {
-    background-color: white;
+    background: linear-gradient(135deg, #f0f9fc 0%, #e0f2f7 100%);
     border: 2px solid #0b4f71;
     border-radius: 10px;
     padding: 20px;
@@ -8,12 +8,16 @@ aside {
 }
 
 aside li {
-    padding: 8px;
+    padding: 10px;
     margin: 5px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
 }
 
 aside li:hover {
-    background-color: #d2edf7;
+    background-color: #0b4f71;
+    color: white;
+    transform: translateX(5px);
 }
 
 
@@ -23,11 +27,16 @@ aside li:hover {
     margin: 15px;
     padding: 20px;
     border: 2px solid #0b4f71;
-    background-color: white;
+    background: linear-gradient(to bottom, #ffffff 0%, #f5f9fb 100%);
     text-align: center;
     box-shadow: 3px 3px 10px #aaaaaa;
+    transition: transform 0.3s ease;
 }
 
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 5px 5px 15px #888888;
+}
 
 figure {
     display: inline-block;
@@ -35,35 +44,39 @@ figure {
     padding: 10px;
     border: 2px solid #0b4f71;
     background-color: white;
+    border-radius: 8px;
 }
 
 figure img {
     width: 300px;
     height: 200px;
-    border: 2px solid #777777;
+    border: 2px solid #0b4f71;
     transition: transform 0.3s;
+    border-radius: 5px;
 }
 
 figure img:hover {
-    transform: scale(1.08);
+    transform: scale(1.08) rotate(1deg);
 }
 
 figcaption {
     text-align: center;
     padding: 8px;
     font-weight: bold;
+    color: #0b4f71;
 }
 
 
 .offer {
-    background-color: #fff3cd;
+    background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%);
     color: #8a4b00;
     font-size: 24px;
     font-weight: bold;
     text-align: center;
     padding: 20px;
     margin: 20px;
-    border: 2px solid #d39e00;
+    border: 3px solid #d39e00;
+    border-radius: 10px;
     box-shadow: 0 0 12px #d39e00;
     text-shadow: 1px 1px 2px #aaaaaa;
     animation: glow 1.5s infinite alternate;
@@ -71,9 +84,9 @@ figcaption {
 
 @keyframes glow {
     from {
-        box-shadow: 0 0 5px #d39e00;
+        box-shadow: 0 0 5px #d39e00, inset 0 0 5px rgba(211, 158, 0, 0.3);
     }
     to {
-        box-shadow: 0 0 20px #d39e00;
+        box-shadow: 0 0 20px #d39e00, inset 0 0 10px rgba(211, 158, 0, 0.5);
     }
 }
