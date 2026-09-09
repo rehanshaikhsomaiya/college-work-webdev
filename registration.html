@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Registration Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        fieldset {
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fafafa;
+        }
+
+        legend {
+            padding: 0 10px;
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 16px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 5px;
+            border: 2px solid #bdc3c7;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="date"]:focus,
+        input[type="number"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .radio-group,
+        .checkbox-group {
+            margin-bottom: 10px;
+        }
+
+        .radio-group label,
+        .checkbox-group label {
+            display: inline-block;
+            margin-right: 20px;
+            margin-top: 0;
+            margin-bottom: 0;
+            font-weight: normal;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .error {
+            color: #e74c3c;
+            font-size: 13px;
+            font-weight: bold;
+            display: none;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        .error.show {
+            display: block;
+        }
+
+        .error-field {
+            border-color: #e74c3c !important;
+            background-color: #fdeaea !important;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        input[type="submit"] {
+            background-color: #27ae60;
+            color: white;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #229954;
+        }
+
+        input[type="reset"] {
+            background-color: #95a5a6;
+            color: white;
+        }
+
+        input[type="reset"]:hover {
+            background-color: #7f8c8d;
+        }
+
+        .success {
+            color: #27ae60;
+            font-size: 14px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-link a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Patient Registration Form</h1>
+
+    <form id="registrationForm" name="registrationForm">
+
+     
+        <fieldset>
+            <legend>Personal Information</legend>
+
+         
+            <div class="form-group">
+                <label for="patientName">Patient Name *</label>
+                <input type="text" id="patientName" name="patientName" placeholder="Enter your full name">
+                <span class="error" id="nameError"></span>
+            </div>
+
+        
+            <div class="form-group">
+                <label for="dateOfBirth">Date of Birth *</label>
+                <input type="date" id="dateOfBirth" name="dateOfBirth">
+                <span class="error" id="dobError"></span>
+            </div>
+
+       
+            <div class="form-group">
+                <label>Gender *</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="gender" id="genderMale" value="Male">
+                        Male
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" id="genderFemale" value="Female">
+                        Female
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" id="genderOther" value="Other">
+                        Other
+                    </label>
+                </div>
+                <span class="error" id="genderError"></span>
+            </div>
+
+           
+            <div class="form-group">
+                <label for="bloodGroup">Blood Group *</label>
+                <select id="bloodGroup" name="bloodGroup">
+                    <option value=""> Select Blood Group </option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                </select>
+                <span class="error" id="bloodGroupError"></span>
+            </div>
+
+        </fieldset>
+
+       
+        <fieldset>
+            <legend>Contact Information</legend>
+
+        
+            <div class="form-group">
+                <label for="mobileNumber">Mobile Number (10 digits) *</label>
+                <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="Enter 10-digit mobile number">
+                <span class="error" id="mobileError"></span>
+            </div>
+
+          
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email">
+                <span class="error" id="emailError"></span>
+            </div>
+
+            
+            <div class="form-group">
+                <label for="address">Address *</label>
+                <textarea id="address" name="address" rows="3" placeholder="Enter your complete address"></textarea>
+                <span class="error" id="addressError"></span>
+            </div>
+
+        </fieldset>
+
+      
+        <fieldset>
+            <legend>Appointment Information</legend>
+
+         
+            <div class="form-group">
+                <label for="department">Department/Appointment Type *</label>
+                <select id="department" name="department">
+                    <option value="">-- Select Department --</option>
+                    <option value="General Checkup">General Checkup</option>
+                    <option value="Urine Test">Urine Test</option>
+                    <option value="Glucose Analysis">Glucose Analysis</option>
+                    <option value="Protein Analysis">Protein Analysis</option>
+                    <option value="Blood Analysis">Blood Analysis</option>
+                    <option value="Kidney Function">Kidney Function</option>
+                </select>
+                <span class="error" id="departmentError"></span>
+            </div>
+
+           
+            <div class="form-group">
+                <label for="registrationDate">Registration Date *</label>
+                <input type="date" id="registrationDate" name="registrationDate">
+                <span class="error" id="regDateError"></span>
+            </div>
+
+          
+            <div class="form-group">
+                <label for="appointmentDate">Preferred Appointment Date *</label>
+                <input type="date" id="appointmentDate" name="appointmentDate">
+                <span class="error" id="appointmentError"></span>
+            </div>
+
+        </fieldset>
+
+      
+        <div class="button-group">
+            <input type="submit" value="Register">
+            <input type="reset" value="Reset">
+        </div>
+
+        <div class="success" id="successMessage">
+            ✓ Registration submitted successfully!
+        </div>
+
+    </form>
+
+    <div class="back-link">
+        <a href="health.html">Back to Home</a>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    
+    const form = document.getElementById('registrationForm');
+
+  
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+   
+        clearAllErrors();
+
+       
+        let isValid = true;
+
+        isValid = validatePatientName() && isValid;
+        isValid = validateDateOfBirth() && isValid;
+        isValid = validateGender() && isValid;
+        isValid = validateBloodGroup() && isValid;
+        isValid = validateMobileNumber() && isValid;
+        isValid = validateEmail() && isValid;
+        isValid = validateAddress() && isValid;
+        isValid = validateDepartment() && isValid;
+        isValid = validateRegistrationDate() && isValid;
+        isValid = validateAppointmentDate() && isValid;
+
+      
+        if (isValid) {
+            document.getElementById('successMessage').style.display = 'block';
+            setTimeout(() => {
+                alert('Registration successful! Your form has been submitted.');
+                form.reset();
+                clearAllErrors();
+                document.getElementById('successMessage').style.display = 'none';
+            }, 1500);
+        }
+    });
+
+ 
+    function validatePatientName() {
+        const nameInput = document.getElementById('patientName');
+        const nameError = document.getElementById('nameError');
+        const nameValue = nameInput.value.trim(); 
+
+        if (nameValue === '') {
+            nameError.textContent = ' Patient name is required';
+            nameError.classList.add('show');
+            nameInput.classList.add('error-field');
+            return false;
+        }
+
+      
+        const nameRegex = /^[a-zA-Z\s]+$/;
+        if (!nameRegex.test(nameValue)) {
+            nameError.textContent = ' Patient name must contain only letters and spaces';
+            nameError.classList.add('show');
+            nameInput.classList.add('error-field');
+            return false;
+        }
+
+   
+        nameInput.value = nameValue;
+        nameInput.classList.remove('error-field');
+        return true;
+    }
+
+
+    function validateDateOfBirth() {
+        const dobInput = document.getElementById('dateOfBirth');
+        const dobError = document.getElementById('dobError');
+        const dobValue = dobInput.value;
+
+        if (dobValue === '') {
+            dobError.textContent = ' Date of birth is required';
+            dobError.classList.add('show');
+            dobInput.classList.add('error-field');
+            return false;
+        }
+
+
+        const selectedDate = new Date(dobValue);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        if (selectedDate > today) {
+            dobError.textContent = 'Date of birth cannot be in the future';
+            dobError.classList.add('show');
+            dobInput.classList.add('error-field');
+            return false;
+        }
+
+        dobInput.classList.remove('error-field');
+        return true;
+    }
+
+ 
+    function validateGender() {
+        const genderRadios = document.getElementsByName('gender');
+        const genderError = document.getElementById('genderError');
+        let isChecked = false;
+
+        for (let radio of genderRadios) {
+            if (radio.checked) {
+                isChecked = true;
+                break;
+            }
+        }
+
+        if (!isChecked) {
+            genderError.textContent = '❌ Please select a gender';
+            genderError.classList.add('show');
+            return false;
+        }
+
+        return true;
+    }
+
+    function validateBloodGroup() {
+        const bloodGroupInput = document.getElementById('bloodGroup');
+        const bloodGroupError = document.getElementById('bloodGroupError');
+        const bloodGroupValue = bloodGroupInput.value;
+
+        if (bloodGroupValue === '') {
+            bloodGroupError.textContent = ' Please select a blood group';
+            bloodGroupError.classList.add('show');
+            bloodGroupInput.classList.add('error-field');
+            return false;
+        }
+
+        bloodGroupInput.classList.remove('error-field');
+        return true;
+    }
+
+  
+    function validateMobileNumber() {
+        const mobileInput = document.getElementById('mobileNumber');
+        const mobileError = document.getElementById('mobileError');
+        const mobileValue = mobileInput.value.trim();
+
+        if (mobileValue === '') {
+            mobileError.textContent = ' Mobile number is required';
+            mobileError.classList.add('show');
+            mobileInput.classList.add('error-field');
+            return false;
+        }
+
+       
+        const mobileRegex = /^[6-9]\d{9}$/;
+        if (!mobileRegex.test(mobileValue)) {
+            mobileError.textContent = '❌ Please enter a valid 10-digit mobile number (starting with 6-9)';
+            mobileError.classList.add('show');
+            mobileInput.classList.add('error-field');
+            return false;
+        }
+
+        mobileInput.value = mobileValue;
+        mobileInput.classList.remove('error-field');
+        return true;
+    }
+
+
+    function validateEmail() {
+        const emailInput = document.getElementById('email');
+        const emailError = document.getElementById('emailError');
+        const emailValue = emailInput.value.trim();
+
+        if (emailValue === '') {
+            emailError.textContent = ' Email address is required';
+            emailError.classList.add('show');
+            emailInput.classList.add('error-field');
+            return false;
+        }
+
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailValue)) {
+            emailError.textContent = ' Please enter a valid email address';
+            emailError.classList.add('show');
+            emailInput.classList.add('error-field');
+            return false;
+        }
+
+        emailInput.value = emailValue;
+        emailInput.classList.remove('error-field');
+        return true;
+    }
+
+   
+    function validateAddress() {
+        const addressInput = document.getElementById('address');
+        const addressError = document.getElementById('addressError');
+        const addressValue = addressInput.value.trim();
+
+        if (addressValue === '') {
+            addressError.textContent = ' Address is required';
+            addressError.classList.add('show');
+            addressInput.classList.add('error-field');
+            return false;
+        }
+
+        if (addressValue.length < 10) {
+            addressError.textContent = ' Address must be at least 10 characters';
+            addressError.classList.add('show');
+            addressInput.classList.add('error-field');
+            return false;
+        }
+
+        addressInput.value = addressValue;
+        addressInput.classList.remove('error-field');
+        return true;
+    }
+
+   
+    function validateDepartment() {
+        const departmentInput = document.getElementById('department');
+        const departmentError = document.getElementById('departmentError');
+        const departmentValue = departmentInput.value;
+
+        if (departmentValue === '') {
+            departmentError.textContent = ' Please select a department';
+            departmentError.classList.add('show');
+            departmentInput.classList.add('error-field');
+            return false;
+        }
+
+        departmentInput.classList.remove('error-field');
+        return true;
+    }
+
+  
+    function validateRegistrationDate() {
+        const regDateInput = document.getElementById('registrationDate');
+        const regDateError = document.getElementById('regDateError');
+        const regDateValue = regDateInput.value;
+
+        if (regDateValue === '') {
+            regDateError.textContent = ' Registration date is required';
+            regDateError.classList.add('show');
+            regDateInput.classList.add('error-field');
+            return false;
+        }
+
+    
+        const selectedDate = new Date(regDateValue);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        if (selectedDate > today) {
+            regDateError.textContent = ' Registration date cannot be in the future';
+            regDateError.classList.add('show');
+            regDateInput.classList.add('error-field');
+            return false;
+        }
+
+        regDateInput.classList.remove('error-field');
+        return true;
+    }
+
+ 
+    function validateAppointmentDate() {
+        const appointmentInput = document.getElementById('appointmentDate');
+        const appointmentError = document.getElementById('appointmentError');
+        const appointmentValue = appointmentInput.value;
+
+        if (appointmentValue === '') {
+            appointmentError.textContent = '❌ Appointment date is required';
+            appointmentError.classList.add('show');
+            appointmentInput.classList.add('error-field');
+            return false;
+        }
+
+        // For appointment, it can be today or future
+        const selectedDate = new Date(appointmentValue);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        if (selectedDate < today) {
+            appointmentError.textContent = '❌ Appointment date cannot be in the past';
+            appointmentError.classList.add('show');
+            appointmentInput.classList.add('error-field');
+            return false;
+        }
+
+        appointmentInput.classList.remove('error-field');
+        return true;
+    }
+
+    // ========================================
+    // HELPER FUNCTION: CLEAR ALL ERRORS
+    // ========================================
+    function clearAllErrors() {
+        const allErrors = document.querySelectorAll('.error');
+        const allFields = document.querySelectorAll('input, select, textarea');
+
+        allErrors.forEach(error => {
+            error.classList.remove('show');
+            error.textContent = '';
+        });
+
+        allFields.forEach(field => {
+            field.classList.remove('error-field');
+        });
+    }
+
+</script>
+
+</body>
+</html>
